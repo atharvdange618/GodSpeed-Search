@@ -1,0 +1,10 @@
+name = "godspeedapi"
+compatibility_date = "2025-06-10"
+
+[vars]
+UPSTASH_REDIS_REST_TOKEN = "ATYCAAIjcDE3ZjBjZWRhMmM0OTc0YWUxOGQ3ODg1ZWRhMGM4NThiOXAxMA"
+UPSTASH_REDIS_REST_URL = "https://beloved-skunk-13826.upstash.io"
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
