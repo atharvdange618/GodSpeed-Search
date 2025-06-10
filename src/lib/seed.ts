@@ -257,12 +257,14 @@ const countryList = [
   "Åland Islands",
 ];
 
+interface Term {
+  score: number;
+  member: string;
+}
+
 countryList.forEach((country) => {
   const term = country.toUpperCase();
-  const terms: {
-    score: 0;
-    member: string;
-  }[] = [];
+  const terms: Term[] = [];
 
   for (let i = 0; i < term.length; i++) {
     terms.push({
@@ -274,8 +276,7 @@ countryList.forEach((country) => {
   terms.push({ score: 0, member: term + "*" });
 
   const populateDb = async () => {
-    //@ts-expect-error
-    await redis.zadd("terms", ...terms);
+    await redis.zadd("terms", ...(terms as [Term, ...Term[]]));
   };
 
   populateDb();
